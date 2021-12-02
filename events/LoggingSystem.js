@@ -34,20 +34,6 @@ client.on("guildChannelPermissionsUpdate", (channel, oldPermissions, newPermissi
 
 })
 
-// unhandled Guild Channel Update
-client.on("unhandledGuildChannelUpdate", (oldChannel, newChannel) => {
-
-    const LogChannel = client.channels.cache.get('881429960521318410'); // Replace with your channel id
-    const unhandledGuildChannelUpdate = new MessageEmbed()
-        .setTitle('Channel Updated!')
-        .setColor('#2F3136')
-        .setDescription("Channel '" + oldChannel.id + "' was edited but discord-logs couldn't find what was updated...");
-
-    return LogChannel.send({
-        embeds: [unhandledGuildChannelUpdate]
-    });
-
-});
 
 // Member Started Boosting
 client.on("guildMemberBoost", (member) => {
